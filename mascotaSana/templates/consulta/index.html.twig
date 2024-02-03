@@ -3,8 +3,8 @@
 {% block title %}Consulta index{% endblock %}
 
 {% block body %}
+    <a href="{{ path('app_home_page') }}"><button>Volver</button></a>
     <h1>Consulta index</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -34,4 +34,6 @@
     </table>
 
     <a href="{{ path('app_consulta_new') }}">Create new</a>
+    <br>
+    
 {% endblock %}
