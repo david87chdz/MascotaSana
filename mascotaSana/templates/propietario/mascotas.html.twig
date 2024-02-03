@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propietario{% endblock %}
+
+{% block body %}
+    <h1>Mascotas de {{propietario.nombre}}</h1>
+                <ol></ol>
+                {% for mascota in propietario.getMascotas() %}
+                <li>{{ mascota.getnombre() }}</li>
+                {% endfor %}
+                <br>
+    <a href="{{ path('app_propietario_index') }}">Volver</a>
+{% endblock %}

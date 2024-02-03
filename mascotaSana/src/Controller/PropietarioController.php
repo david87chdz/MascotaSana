@@ -42,10 +42,19 @@ class PropietarioController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_propietario_show', methods: ['GET'])]
+    #[Route('/mascotas/{id}', name: 'app_propietario_show', methods: ['GET'])]
     public function show(Propietario $propietario): Response
     {
         return $this->render('propietario/show.html.twig', [
+            'propietario' => $propietario,
+        ]);
+    }
+
+
+    #[Route('/{id}', name: 'app_propietario_mascotas', methods: ['GET'])]
+    public function mascotas(Propietario $propietario): Response
+    {
+        return $this->render('propietario/mascotas.html.twig', [
             'propietario' => $propietario,
         ]);
     }

@@ -21,20 +21,18 @@ class PropietarioRepository extends ServiceEntityRepository
         parent::__construct($registry, Propietario::class);
     }
 
-//    /**
-//     * @return Propietario[] Returns an array of Propietario objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Propietario[] Returns an array of Propietario objects
+     */
+    public function findByExampleField($value): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.mascotas = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Propietario
 //    {

@@ -21,20 +21,43 @@ class MascotaRepository extends ServiceEntityRepository
         parent::__construct($registry, Mascota::class);
     }
 
-//    /**
-//     * @return Mascota[] Returns an array of Mascota objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * Mascotas por propietarios
+    * @return array 
+    */
+   public function mascotasPropietarios(): array
+   {
+        return $this->createQueryBuilder('m')
+        ->join('m.propietario', 'p')
+        ->groupBy('p.id')
+        ->getQuery()
+        ->getResult();
+
+   }
+
+   /**
+    * Mascotas por Tipo
+    * @return array 
+    */
+   public function mascotasPorTipo(): array
+{
+    return $this->createQueryBuilder('m')
+        ->groupBy('m.tipo')
+        ->getQuery()
+        ->getResult();
+}
+
+   /**
+    * Mascotas por raza
+    * @return array 
+    */
+public function mascotasPorRaza(): array
+{
+    return $this->createQueryBuilder('m')
+        ->groupBy('m.raza')
+        ->getQuery()
+        ->getResult();
+}
 
 //    public function findOneBySomeField($value): ?Mascota
 //    {
