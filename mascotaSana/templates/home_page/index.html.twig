@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Página David{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Bienvenid@ a Mascota Sana! ✅</h1>
+    <ul>
+        <li><a href="{{ path('app_raza_index') }}">Crud Razas</a></li>
+        <li><a href="{{ path('app_tipo_index') }}">Crud Tipos</a></li>
+        <li><a href="{{ path('app_tratamiento_index') }}">Crud Tratamientos</a></li>
+        <li><a href="{{ path('app_propietario_index') }}">Crud Propietarios</a></li>
+        <li><a href="{{ path('app_mascota_index') }}">Crud Mascotas</a></li>
+        <li><a href="{{ path('app_consulta_index') }}">Crud Consultas</a></li>
+    </ul>
+</div>
+{% endblock %}

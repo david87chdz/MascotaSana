@@ -10,6 +10,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Raza</th>
+                <th>Propietario</th>
                 <th>Fecha</th>
                 <th>Fecha_nac</th>
                 <th>actions</th>
@@ -20,8 +23,11 @@
             <tr>
                 <td>{{ mascotum.id }}</td>
                 <td>{{ mascotum.nombre }}</td>
-                <td>{{ mascotum.fecha ? mascotum.fecha|date('Y-m-d') : '' }}</td>
-                <td>{{ mascotum.fechaNac ? mascotum.fechaNac|date('Y-m-d') : '' }}</td>
+                <td>{{ mascotum.tipo.getNombre() }}</td>
+                <td>{{ mascotum.raza.getNombre() }}</td>
+                <td>{{ mascotum.propietario.getNombre() }}</td>
+                <td>{{ mascotum.fecha ? mascotum.fecha|date('d-m-Y') : '----' }}</td>
+                <td>{{ mascotum.fechaNac ? mascotum.fechaNac|date('d-m-Y') : '----' }}</td>
                 <td>
                     <a href="{{ path('app_mascota_show', {'id': mascotum.id}) }}">show</a>
                     <a href="{{ path('app_mascota_edit', {'id': mascotum.id}) }}">edit</a>
