@@ -22,10 +22,10 @@
                 <td>{{ tratamiento.id }}</td>
                 <td>{{ tratamiento.nombre }}</td>
                 <td>{{ tratamiento.duracion }}</td>
-                <td>{{ tratamiento.descripcion }}</td>
+                <td>{{ tratamiento.descripcion ? tratamiento.descripcion : "Sin descripción" }}</td>
                 <td>
-                    <a href="{{ path('app_tratamiento_show', {'id': tratamiento.id}) }}">show</a>
-                    <a href="{{ path('app_tratamiento_edit', {'id': tratamiento.id}) }}">edit</a>
+                    <a href="{{ path('app_tratamiento_show', {'id': tratamiento.id}) }}"><button>Mostrar</button></a>
+                    <a href="{{ path('app_tratamiento_edit', {'id': tratamiento.id}) }}"><button>Editar</button></a>
                 </td>
             </tr>
         {% else %}
@@ -36,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_tratamiento_new') }}">Create new</a>
+    <a href="{{ path('app_tratamiento_new') }}"><button>Nuevo</button></a>
 {% endblock %}

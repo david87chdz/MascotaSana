@@ -3,6 +3,7 @@
 {% block title %}Mascota{% endblock %}
 
 {% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Mascota</h1>
 
     <table class="table">
@@ -16,6 +17,18 @@
                 <td>{{ mascotum.nombre }}</td>
             </tr>
             <tr>
+                <th>Tipo</th>
+                <td>{{ mascotum.tipo.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Raza</th>
+                <td>{{ mascotum.raza.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Propietario</th>
+                <td>{{ mascotum.propietario.nombre }}</td>
+            </tr>
+            <tr>
                 <th>Fecha</th>
                 <td>{{ mascotum.fecha ? mascotum.fecha|date('Y-m-d') : '' }}</td>
             </tr>
@@ -26,9 +39,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_mascota_index') }}">back to list</a>
+    <a href="{{ path('app_mascota_index') }}"><button>Volver</button></a>
 
-    <a href="{{ path('app_mascota_edit', {'id': mascotum.id}) }}">edit</a>
+    <a href="{{ path('app_mascota_edit', {'id': mascotum.id}) }}"><button>Editar</button></a>
 
     {{ include('mascota/_delete_form.html.twig') }}
 {% endblock %}

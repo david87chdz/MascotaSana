@@ -3,6 +3,7 @@
 {% block title %}Consulta{% endblock %}
 
 {% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Consulta</h1>
 
     <table class="table">
@@ -12,19 +13,23 @@
                 <td>{{ consultum.id }}</td>
             </tr>
             <tr>
+                <th>Mascota</th>
+                <td>{{ consultum.mascota.nombre }}</td>
+            </tr>
+            <tr>
                 <th>Fecha</th>
-                <td>{{ consultum.fecha ? consultum.fecha|date('Y-m-d') : '' }}</td>
+                <td>{{ consultum.fecha ? consultum.fecha|date('Y-m-d') : 'No hay fecha' }}</td>
             </tr>
             <tr>
                 <th>Observaciones</th>
-                <td>{{ consultum.observaciones }}</td>
+                <td>{{ consultum.observaciones ? consultum.observaciones : 'No hay observaciones'}}</td>
             </tr>
         </tbody>
     </table>
+    <br>
+    <a href="{{ path('app_consulta_index') }}"><button>Volver</button></a>
 
-    <a href="{{ path('app_consulta_index') }}">back to list</a>
-
-    <a href="{{ path('app_consulta_edit', {'id': consultum.id}) }}">edit</a>
-
+    <a href="{{ path('app_consulta_edit', {'id': consultum.id}) }}"><button>Editar</button></a>
+    <br>
     {{ include('consulta/_delete_form.html.twig') }}
 {% endblock %}

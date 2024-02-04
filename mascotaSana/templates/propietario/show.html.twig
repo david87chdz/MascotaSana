@@ -3,6 +3,7 @@
 {% block title %}Propietario{% endblock %}
 
 {% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Propietario</h1>
 
     <table class="table">
@@ -26,9 +27,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_propietario_index') }}">back to list</a>
+    <a href="{{ path('app_propietario_index') }}"><button>Volver</button></a>
 
-    <a href="{{ path('app_propietario_edit', {'id': propietario.id}) }}">edit</a>
+    <a href="{{ path('app_propietario_edit', {'id': propietario.id}) }}"><button>Editar</button></a>
 
     {{ include('propietario/_delete_form.html.twig') }}
 {% endblock %}

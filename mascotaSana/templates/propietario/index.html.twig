@@ -3,7 +3,7 @@
 {% block title %}Propietario index{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_home_page') }}"><button>Volver</button></a>
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Propietario index</h1>
 
     <table class="table">
@@ -24,9 +24,9 @@
                 <td>{{ propietario.direccion }}</td>
                 <td>{{ propietario.telefono }}</td>
                 <td>
-                    <a href="{{ path('app_propietario_show', {'id': propietario.id}) }}">show</a>
-                    <a href="{{ path('app_propietario_edit', {'id': propietario.id}) }}">edit</a>
-                    <a href="{{ path('app_propietario_mascotas', {'id': propietario.id}) }}">Ver Mascotas</a>
+                    <a href="{{ path('app_propietario_show', {'id': propietario.id}) }}"><button>Mostrar</button></a>
+                    <a href="{{ path('app_propietario_edit', {'id': propietario.id}) }}"><button>Editar</button></a>
+                    <a href="{{ path('app_propietario_mascotas', {'id': propietario.id}) }}"><button>Mascotas</button></a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_propietario_new') }}">Create new</a>
+    <a href="{{ path('app_propietario_new') }}"><button>Crear Nuevo</button></a>
 {% endblock %}

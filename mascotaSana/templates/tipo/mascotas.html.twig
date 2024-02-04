@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tipos{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
+    <h1>Mascotas que son {{tipo.nombre}}</h1>
+                <ol></ol>
+                {% for mascota in tipo.getMascotas() %}
+                <li>{{ mascota.getnombre() }} -- Propietario: {{mascota.propietario.nombre}}</li>
+                {% endfor %}
+                <br>
+    <a href="{{ path('app_tipo_index') }}"><button>Volver</button></a>
+{% endblock %}

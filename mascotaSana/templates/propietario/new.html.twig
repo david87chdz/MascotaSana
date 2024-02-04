@@ -3,9 +3,10 @@
 {% block title %}New Propietario{% endblock %}
 
 {% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Create new Propietario</h1>
 
     {{ include('propietario/_form.html.twig') }}
 
-    <a href="{{ path('app_propietario_index') }}">back to list</a>
+    <a href="{{ path('app_propietario_index') }}"><button>Volver</button></a>
 {% endblock %}

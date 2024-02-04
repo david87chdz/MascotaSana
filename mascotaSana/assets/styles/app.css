@@ -2,8 +2,15 @@ body {
     background-color: aquamarine;
 }
 
+table{
+    margin: 6em;
+}
 table, td,th{
     border: 2px solid black;
     border-collapse: collapse;
     padding: 2px;
+}
+
+button{
+    margin: 3px;
 }

@@ -3,7 +3,7 @@
 {% block title %}Tipo index{% endblock %}
 
 {% block body %}
-<a href="{{ path('app_home_page') }}"><button>Volver</button></a>
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
     <h1>Tipo index</h1>
 
     <table class="table">
@@ -20,8 +20,9 @@
                 <td>{{ tipo.id }}</td>
                 <td>{{ tipo.nombre }}</td>
                 <td>
-                    <a href="{{ path('app_tipo_show', {'id': tipo.id}) }}">show</a>
-                    <a href="{{ path('app_tipo_edit', {'id': tipo.id}) }}">edit</a>
+                    <a href="{{ path('app_tipo_show', {'id': tipo.id}) }}"><button>Mostrar</button></a>
+                    <a href="{{ path('app_tipo_edit', {'id': tipo.id}) }}"><button>Editar</button></a>
+                    <a href="{{ path('app_tipo_mascotas', {'id': tipo.id}) }}"><button>Cantidad</button></a>
                 </td>
             </tr>
         {% else %}
@@ -32,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_tipo_new') }}">Create new</a>
+    <a href="{{ path('app_tipo_new') }}"><button>Nuevo</button></a>
 {% endblock %}

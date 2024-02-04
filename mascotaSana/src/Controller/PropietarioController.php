@@ -50,7 +50,7 @@ class PropietarioController extends AbstractController
         ]);
     }
 
-
+    //Para mostrar las mascotas del propietario
     #[Route('/{id}', name: 'app_propietario_mascotas', methods: ['GET'])]
     public function mascotas(Propietario $propietario): Response
     {

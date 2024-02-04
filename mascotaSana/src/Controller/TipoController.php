@@ -22,6 +22,15 @@ class TipoController extends AbstractController
         ]);
     }
 
+    //Para mostrar las mascotas del tipo
+    #[Route('/{id}', name: 'app_tipo_mascotas', methods: ['GET'])]
+    public function mascotas(Tipo $tipo): Response
+    {
+        return $this->render('tipo/mascotas.html.twig', [
+            'tipo' => $tipo,
+        ]);
+    }
+
     #[Route('/new', name: 'app_tipo_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

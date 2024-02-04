@@ -3,9 +3,10 @@
 {% block title %}New Tratamiento{% endblock %}
 
 {% block body %}
-    <h1>Create new Tratamiento</h1>
+<a href="{{ path('app_home_page') }}"><button>Volver</button></a>
+    <h1>Crear nuevo tratamiento</h1>
 
     {{ include('tratamiento/_form.html.twig') }}
 
-    <a href="{{ path('app_tratamiento_index') }}">back to list</a>
+    <a href="{{ path('app_tratamiento_index') }}"><button>Volver</button></a>
 {% endblock %}
