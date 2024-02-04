@@ -21,6 +21,24 @@ class ConsultaRepository extends ServiceEntityRepository
         parent::__construct($registry, Consulta::class);
     }
 
+
+
+     /**
+     * @return array Returns an array of Consulta objects
+     */
+    public function consultaPorMascota($nombre): array
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.mascota', 'm')
+            ->where('m.nombre= :nom')
+            ->setParameter('nom', $nombre)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
 //    /**
 //     * @return Consulta[] Returns an array of Consulta objects
 //     */

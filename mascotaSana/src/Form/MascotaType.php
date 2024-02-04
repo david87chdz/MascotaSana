@@ -21,15 +21,15 @@ class MascotaType extends AbstractType
             ->add('fecha_nac')
             ->add('raza', EntityType::class, [
                 'class' => Raza::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
             ->add('tipo', EntityType::class, [
                 'class' => Tipo::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
             ->add('propietario', EntityType::class, [
                 'class' => Propietario::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
         ;
     }

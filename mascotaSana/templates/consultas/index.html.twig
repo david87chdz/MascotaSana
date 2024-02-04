@@ -41,5 +41,16 @@
     </ul>
   {% endfor %}
 
+    <h2>Consultas de una determinada mascota</h2>
+    
+    <ul>
+    {% for cons in consultas %}   
+    <h3>{{ cons.mascota.nombre }}</h3> 
+    <li> {{cons.id}} </li>
+    <li> {{cons.fecha ? cons.fecha|date('Y-m-d') : '' }} </li>
+    <li> {{cons.observaciones ? cons.observaciones : "No hay observaciones" }} </li>
+
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}

@@ -19,11 +19,11 @@ class ConsultaType extends AbstractType
             ->add('observaciones')
             ->add('mascota', EntityType::class, [
                 'class' => Mascota::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
             ->add('tratamiento', EntityType::class, [
                 'class' => Tratamiento::class,
-'choice_label' => 'id',
+'choice_label' => 'nombre',
             ])
         ;
     }
