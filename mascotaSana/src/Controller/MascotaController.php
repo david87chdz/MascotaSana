@@ -10,7 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+//Cargar
+use Symfony\Component\HttpFoundation\JsonResponse;
+//Necesitamos cargar tambien cors
+//composer require cors 
 #[Route('/mascota')]
 class MascotaController extends AbstractController
 {
@@ -20,6 +23,28 @@ class MascotaController extends AbstractController
         return $this->render('mascota/index.html.twig', [
             'mascotas' => $mascotaRepository->findAll(),
         ]);
+    }
+
+
+    //Prueba angular
+
+    #[Route('/getTodas', name: 'getTodas', methods: ['GET'])]
+    public function getTodas(MascotaRepository $mascotaRepository): Response
+    {
+        $mascotas = $mascotaRepository->findAll();
+
+    // Serializa las entidades Mascota a un arreglo asociativo
+    $mascotasArray = [];
+    foreach ($mascotas as $mascota) {
+        $mascotasArray[] = [
+            'id' => $mascota->getId(),
+            'nombre' => $mascota->getNombre(),
+            // Agrega más campos según lo que necesites
+        ];
+    }
+
+    // Devuelve los datos en formato JSON
+        return new JsonResponse($mascotasArray);
     }
 
     #[Route('/new', name: 'app_mascota_new', methods: ['GET', 'POST'])]
