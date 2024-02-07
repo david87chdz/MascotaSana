@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 //Cargar
 use Symfony\Component\HttpFoundation\JsonResponse;
+
 //Necesitamos cargar tambien cors
 //composer require cors 
 #[Route('/mascota')]
@@ -39,12 +40,18 @@ class MascotaController extends AbstractController
         $mascotasArray[] = [
             'id' => $mascota->getId(),
             'nombre' => $mascota->getNombre(),
-            // Agrega más campos según lo que necesites
+            'propietario' => $mascota->getPropietario(),
         ];
     }
 
     // Devuelve los datos en formato JSON
         return new JsonResponse($mascotasArray);
+/* 
+        $jsonResponse= new Response($jsonResponse, Response::HTTP_OK);
+
+        $response->headers->set('Contente-Type', 'aplicattion/json');
+        
+        return $response; */
     }
 
     #[Route('/new', name: 'app_mascota_new', methods: ['GET', 'POST'])]
