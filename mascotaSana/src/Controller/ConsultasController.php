@@ -21,6 +21,27 @@ class ConsultasController extends AbstractController
         ]);
     }
 
+
+    
+    #[Route('/consultas', name: 'buscar')]
+    public function search(Request $request)
+    {
+        $form = $this->createForm(SearchFormType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Procesa la búsqueda aquí, por ejemplo, busca usuarios en la base de datos
+            $searchTerm = $form->get('nombre')->getData();
+            // Realiza la lógica para buscar en tu base de datos o donde sea que estén tus datos
+        }
+
+        return $this->render('buscar/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+}
+
     /* #[Route('/', name: 'app_consultas_mascotas', methods: ['GET'])]
     public function mascotas(MascotaRepository $mascotaRepository): Response
     {
@@ -28,4 +49,4 @@ class ConsultasController extends AbstractController
             
         ]);
     } */
-}
+

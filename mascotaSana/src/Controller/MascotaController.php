@@ -35,7 +35,7 @@ class MascotaController extends AbstractController
         $mascotas = $mascotaRepository->findAll();
 
     // Serializa las entidades Mascota a un arreglo asociativo
-/*     $mascotasArray = [];
+    /* $mascotasArray = [];
     foreach ($mascotas as $mascota) {
         $mascotasArray[] = [
             'id' => $mascota->getId(),
@@ -45,7 +45,7 @@ class MascotaController extends AbstractController
     } */
 
     // Devuelve los datos en formato JSON
-        return new JsonResponse($mascotasArray);
+        //return new JsonResponse($mascotasArray);
 
         $jsonResponse= new Response($jsonResponse, Response::HTTP_OK);
 
