@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+//Estas importarlas
+use Symfony\Component\HttpFoundation\Request;
+use App\Repository\UserRepository;
+
+
 class ConsultasController extends AbstractController
 {
     #[Route('/consultas', name: 'app_consultas')]
@@ -26,7 +31,7 @@ class ConsultasController extends AbstractController
     #[Route('/consultas', name: 'buscar')]
     public function search(Request $request)
     {
-        $form = $this->createForm(SearchFormType::class);
+        $form = $this->createForm(ConsultasType::class);
 
         $form->handleRequest($request);
 
@@ -34,9 +39,10 @@ class ConsultasController extends AbstractController
             // Procesa la búsqueda aquí, por ejemplo, busca usuarios en la base de datos
             $searchTerm = $form->get('nombre')->getData();
             // Realiza la lógica para buscar en tu base de datos o donde sea que estén tus datos
+            $searchResults = $userRepository->findByNombre($searchTerm);
         }
 
-        return $this->render('buscar/index.html.twig', [
+        return $this->render('consultas/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
