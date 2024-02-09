@@ -28,24 +28,30 @@ class ConsultasController extends AbstractController
 
 
     
-    #[Route('/consultas', name: 'buscar')]
-    public function search(Request $request)
+    #[Route('/buscar-consultas', name: 'buscar_consultas', methods: ['GET', 'POST'])]
+    public function search(Request $request,  $consultaRepository): Response
     {
         $form = $this->createForm(ConsultasType::class);
-
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
-            // Procesa la búsqueda aquí, por ejemplo, busca usuarios en la base de datos
-            $searchTerm = $form->get('nombre')->getData();
+            $searchTerm = $form->get('nombre')->getData(); // Suponiendo que 'nombre' es el campo de búsqueda en tu formulario
+    
             // Realiza la lógica para buscar en tu base de datos o donde sea que estén tus datos
-            $searchResults = $userRepository->findByNombre($searchTerm);
+            $searchResults = $consultaRepository->consultaPorMascota($searchTerm);
+    
+            // Aquí deberías devolver los resultados de la búsqueda a la vista, en lugar de redirigir
+            return $this->render('consultas/new.html.twig', [
+                
+                'form' => $form->createView(),
+            ]);
         }
-
-        return $this->render('consultas/index.html.twig', [
+    
+        return $this->render('consultas/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+    
 }
 
     /* #[Route('/', name: 'app_consultas_mascotas', methods: ['GET'])]

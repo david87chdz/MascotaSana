@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Consulta{% endblock %}
+
+{% block body %}
+<a href="{{ path('app_home_page') }}"><button>Inicio</button></a>
+    <h1>Create new Consulta</h1>
+
+    {{ include('consultas/_form.html.twig') }}
+    <br>
+    <a href="{{ path('app_consultas_index') }}"><button>Volver</button></a>
+{% endblock %}
