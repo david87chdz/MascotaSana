@@ -43,7 +43,7 @@ class ConsultasController extends AbstractController
             // Aquí deberías devolver los resultados de la búsqueda a la vista, en lugar de redirigir
             return $this->render('consultas/new.html.twig', [
                 
-                'form' => $form->createView(),
+                'forms' => $form->createView(),
             ]);
         }
     
