@@ -1,6 +1,6 @@
 # Proyecto Symfony
 
-Este documento describe el proyecto desarrollado con Symfony, un framework PHP robusto y flexible.
+Este documento describe el proyecto desarrollado con Symfony,para la gestion de una clinica veterinaria.
 
 ## Descripción
 
